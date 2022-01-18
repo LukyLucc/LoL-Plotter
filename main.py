@@ -1,5 +1,5 @@
 from Wrapper import *
-
+from Plotter import *
 
 def print_hi(name):
     # Use a breakpoint in the code line below to debug your script.
@@ -15,9 +15,8 @@ if __name__ == '__main__':
     name = 'LukyLucc'
 
     wrapper = Wrapper(api_key, my_region, name)
-    matches = wrapper.getDate("EUW1_4972372419")
-    matches = wrapper.getAllDates()
-
+    dict = wrapper.getAllDates()
+    toArray(dict)
 
     print()
 
