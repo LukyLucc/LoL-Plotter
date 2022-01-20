@@ -5,10 +5,16 @@ import numpy as np
 
 class Wrapper:
     """
-
+    Wrapperclass for the Riot Api and riotwatcher
     """
 
     def __init__(self, api_key, my_region, summoner_name):
+        """
+        Initialize Wrapper Class
+        :param api_key: String
+        :param my_region: String
+        :param summoner_name: String
+        """
         self.api_key = api_key
         self.my_region = my_region
         self.summoner_name = summoner_name
@@ -31,8 +37,14 @@ class Wrapper:
 
         return matches
 
-    def getSmallMatchHistory(self):
-        pass
+    def getSmallMatchHistory(self, count=20) -> list:
+        """
+        Returns the last 'count' GameIDs
+        :param count: Int
+        :return: list of GameIDs
+        """
+        matches = self.watcher.match.matchlist_by_puuid('EUROPE', self.getPuuid(), count=count)
+        return matches
 
     def getSummoner(self):
         """
@@ -56,7 +68,7 @@ class Wrapper:
         try:
             game = self.watcher.match.by_id("EUROPE", game_id)
         except:
-            return datetime.now().date()
+            return 0
         unix = game['info']['gameCreation']
         unix = int(unix / 1000)
 
@@ -65,14 +77,11 @@ class Wrapper:
 
     def getAllDates(self, matches) -> np.array:
         """
+        Get the Dates of all GameIDs in 'matches'
 
-        :return: list of datetime
-        """
-        # matches = self.getMatchHistory()
-        # sampel_matches = ['EUW1_5675455489', 'EUW1_5675378816', 'EUW1_5675402656', 'EUW1_5673282942', 'EUW1_5669648539',
-        #                  'EUW1_5669620635', 'EUW1_5667456956', 'EUW1_5665085560', 'EUW1_5665080642', 'EUW1_5663575630',
-        #                  'EUW1_5663433898'
-        #                  ]
+       :param matches:
+       :return: np.array x,y -> X-Axis and Y-Axis for the Plot
+       """
         x = np.array([], dtype='datetime64')
         y = np.array([])
 
