@@ -2,7 +2,7 @@ from Wrapper import *
 from Plotter import *
 
 
-def PlotSmall(api_key, my_region, name, count=20):
+def plotSmall(api_key, my_region, name, count=20):
     """
     Plots small sample size
     :param api_key:
@@ -16,7 +16,7 @@ def PlotSmall(api_key, my_region, name, count=20):
     plot(x, y)
 
 
-def PlotBig(api_key, my_region, name):
+def plotBig(api_key, my_region, name):
     """
     Plots all Data found
     :param api_key:
@@ -35,4 +35,4 @@ if __name__ == '__main__':
     my_region = 'euw1'
     name = 'LukyLucc'
 
-    PlotBig(api_key, my_region, name)
+    plotSmall(api_key, my_region, name)

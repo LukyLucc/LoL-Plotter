@@ -78,7 +78,6 @@ class Wrapper:
     def getAllDates(self, matches) -> np.array:
         """
         Get the Dates of all GameIDs in 'matches'
-
        :param matches:
        :return: np.array x,y -> X-Axis and Y-Axis for the Plot
        """
