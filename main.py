@@ -13,7 +13,7 @@ def PlotSmall(api_key, my_region, name, count=20):
     wrapper = Wrapper(api_key, my_region, name)
     matches = wrapper.getSmallMatchHistory(count)
     x, y = wrapper.getAllDates(matches)
-    toArray(x, y)
+    plot(x, y)
 
 
 def PlotBig(api_key, my_region, name):

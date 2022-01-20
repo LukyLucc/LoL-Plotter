@@ -87,10 +87,11 @@ class Wrapper:
 
         for game_id in matches:
             date = self.getDate(game_id)
-            if date in x:
-                index = np.where(x == date)
-                y[index] += 1
-            else:
-                x = np.append(x, date)
-                y = np.append(y, 1)
+            if date != 0:
+                if date in x:
+                    index = np.where(x == date)
+                    y[index] += 1
+                else:
+                    x = np.append(x, date)
+                    y = np.append(y, 1)
         return x, y
