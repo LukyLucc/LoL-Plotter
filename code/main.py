@@ -13,7 +13,7 @@ def plotSmall(api_key, my_region, name, count=20):
     wrapper = Wrapper(api_key, my_region, name)
     matches = wrapper.getSmallMatchHistory(count)
     x, y = wrapper.getAllDates(matches)
-    plot(x, y)
+    plotNormal(x, y)
 
 
 def plotBig(api_key, my_region, name):
@@ -27,7 +27,7 @@ def plotBig(api_key, my_region, name):
     wrapper = Wrapper(api_key, my_region, name)
     matches = wrapper.getMatchHistory()
     x, y = wrapper.getAllDates(matches)
-    plot(x, y)
+    plotTrendLine(x, y)
 
 
 if __name__ == '__main__':
@@ -35,4 +35,4 @@ if __name__ == '__main__':
     my_region = 'euw1'
     name = 'LukyLucc'
 
-    plotSmall(api_key, my_region, name)
+    plotBig(api_key, my_region, name)
